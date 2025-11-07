@@ -1,0 +1,34 @@
+@startuml
+class basketball.BasketballPlayer {
++ void send(String)
++ void receive(String)
+}
+
+class basketball.Main {
++ {static} void main(String[])
+}
+
+abstract class basketball.Player {
+# Mediator mediator
+# String name
++ {abstract}void send(String)
++ {abstract}void receive(String)
+}
+
+
+interface basketball.Mediator {
+~ void sendMessage(String,Player)
+}
+
+class basketball.CoachMediator {
+- List<Player> players
++ void registerPlayer(Player)
++ void sendMessage(String,Player)
+}
+
+
+
+
+basketball.Player <|-- basketball.BasketballPlayer
+basketball.Mediator <|.. basketball.CoachMediator
+@enduml
