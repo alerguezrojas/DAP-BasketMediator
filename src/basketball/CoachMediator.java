@@ -15,7 +15,7 @@ public class CoachMediator implements Mediator {
         for (Player player : players) {
             // Notify all players except the sender
             if (player != sender) {
-                player.receiveMessage(message);
+                player.receive(message);
             }
         }
     }
